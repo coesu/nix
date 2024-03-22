@@ -163,7 +163,7 @@
     enableZshIntegration = true;
     enableNushellIntegration = true;
     settings = {
-      add_newline = true;
+      add_newline = false;
     };
   };
 

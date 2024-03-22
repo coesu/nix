@@ -9,7 +9,7 @@ in
 
   users.users.lars = {
     isNormalUser = true;
-    hashedPasswordFile = config.sops.secrets.ta-password.path;
+    # hashedPasswordFile = config.sops.secrets.ta-password.path;
     shell = pkgs.zsh; # default shell
     extraGroups = [
       "wheel"

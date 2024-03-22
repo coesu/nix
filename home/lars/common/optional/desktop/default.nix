@@ -15,6 +15,14 @@ in
     source = ./hypr;
     recursive = true;
   };
+  home.file.".config/wofi" = {
+    source = ./wofi;
+    recursive = true;
+  };
+  home.file.".config/kitty" = {
+    source = ./kitty;
+    recursive = true;
+  };
   home.file.".config/waybar" = {
     source = ./waybar;
     recursive = true;

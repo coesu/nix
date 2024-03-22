@@ -9,7 +9,7 @@
     ./fonts.nix # core fonts
     ./git.nix # personal git config
     ./kitty.nix # terminal
-    ./ssh.nix # personal ssh configs
+    # ./ssh.nix # personal ssh configs
     ./zoxide.nix # cd replacement
     ./shell.nix # primary shell: includes zsh, oh-my-zsh, and p10k theme
 
@@ -63,6 +63,7 @@
       unzip# zip extraction
       unrar# rar extraction
       wget# downloader
+      killall
       zip; # zip compression
   };
 

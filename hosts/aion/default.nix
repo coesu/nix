@@ -32,6 +32,7 @@
   # set custom autologin options. see greetd.nix for details
   # TODO is there a better spot for this?
   services.gnome.gnome-keyring.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
   # TODO enable and move to greetd area? may need authentication dir or something?
   # services.pam.services.greetd.enableGnomeKeyring = true;
 
@@ -47,7 +48,7 @@
     efiSupport = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.loader.efi.efiSysMountPoint = "/boot";
   boot.extraModulePackages = [
     config.boot.kernelPackages.v4l2loopback.out
   ];

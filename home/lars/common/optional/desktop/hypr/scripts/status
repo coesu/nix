@@ -4,5 +4,5 @@ if [[ ! $(pidof waybar) ]]
 then
     waybar
 else
-    killall waybar
+    kill $(pidof waybar)
 fi
