@@ -34,8 +34,8 @@
     nix-colors.url = "github:misterio77/nix-colors";
 
     firefoxaddons = {
-        url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # vim4LMFQR!

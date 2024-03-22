@@ -129,16 +129,38 @@
   #   enable = true;
   #   enableNushellIntegration = true;
   # };
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      ls = "exa";
+      l = "exa -l";
+      la = "exa -la";
+      f = "z";
+      j = "zi";
+
+      cp = "cp -iv";
+      mv = "mv -iv";
+      rm = "rm -iv";
+
+      vim = "nvim";
+      vi = "nvim";
+
+      za = "zathura";
+
+      drag = "xdragon -a -x";
+    };
+  };
 
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
+    enableFishIntegration = true;
     # enableNushellIntegration = true;
     settings = {
       add_newline = false;

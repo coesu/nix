@@ -24,7 +24,7 @@
       # "$HOME/scripts/talon_scripts"
     ];
     sessionVariables = {
-      SHELL = "zsh";
+      SHELL = "fish";
       TERM = "kitty";
       TERMINAL = "kitty";
       EDITOR = "nvim";

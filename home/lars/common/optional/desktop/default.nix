@@ -25,8 +25,8 @@
     source = ./waybar;
     recursive = true;
   };
-  home.file."." = {
-    source = ./tmux;
+  home.file.".tmux.conf" = {
+    source = ./tmux/.tmux.conf;
     recursive = true;
   };
 
