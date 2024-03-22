@@ -11,19 +11,19 @@
     #################### Utilities ####################
 
     # Declarative partitioning and formatting
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # disko = {
+    #   url = "github:nix-community/disko";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # Official NixOS hardware packages
     hardware.url = "github:nixos/nixos-hardware";
 
     # Secrets management. See ./docs/secretsmgmt.md
-    sops-nix = {
-      url = "github:mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # sops-nix = {
+    #   url = "github:mic92/sops-nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # Home-manager for declaring user/home configurations
     home-manager = {
@@ -32,10 +32,10 @@
     };
 
     # vim4LMFQR!
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-23.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixvim = {
+    #   url = "github:nix-community/nixvim/nixos-23.11";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # Windows management
     # for now trying to avoid this one because I want stability for my wm
@@ -53,10 +53,10 @@
 
     # Private secrets repo.  See ./docs/secretsmgmt.md
     # Authenticate via ssh and use shallow clone
-    mysecrets = {
-      url = "git+ssh://git@gitlab.com/emergentmind/nix-secrets.git?ref=main&shallow=1";
-      flake = false;
-    };
+    # mysecrets = {
+    #   url = "git+ssh://git@gitlab.com/emergentmind/nix-secrets.git?ref=main&shallow=1";
+    #   flake = false;
+    # };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
@@ -67,7 +67,7 @@
         "x86_64-linux"
         # "aarch64-linux"
         # "x86_64-darwin"
-        "aarch64-darwin"
+        # "aarch64-darwin"
         # "i686-linux"
       ];
       forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
@@ -102,20 +102,8 @@
       # Typically adopted using 'sudo nixos-rebuild switch --flake .#hostname'
 
       nixosConfigurations = {
-        # devlab
-        grief = lib.nixosSystem {
-          modules = [ ./hosts/grief ];
-          specialArgs = { inherit inputs outputs; };
-        };
-        # remote install lab
-        guppy = lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [ ./hosts/guppy ];
-          specialArgs = { inherit inputs outputs; };
-        };
-        # theatre
-        gusto = lib.nixosSystem {
-          modules = [ ./hosts/gusto ];
+        aion = lib.nixosSystem {
+          modules = [ ./hosts/aion ];
           specialArgs = { inherit inputs outputs; };
         };
       };
@@ -126,23 +114,8 @@
       # Typically adopted using 'home-manager switch --flake .#primary-username@hostname'
 
       homeConfigurations = {
-        "ta@grief" = lib.homeManagerConfiguration {
-          modules = [ ./home/ta/grief.nix ];
-          pkgs = pkgsFor.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-        };
-        "ta@guppy" = lib.homeManagerConfiguration {
-          modules = [ ./home/ta/guppy.nix ];
-          pkgs = pkgsFor.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-        };
-        "media@gusto" = lib.homeManagerConfiguration {
-          modules = [ ./home/media/gusto.nix ];
-          pkgs = pkgsFor.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-        };
-        "ta@gusto" = lib.homeManagerConfiguration {
-          modules = [ ./home/ta/gusto.nix ];
+        "lars@aion" = lib.homeManagerConfiguration {
+          modules = [ ./home/lars/aion.nix ];
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
         };
