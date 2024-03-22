@@ -11,9 +11,7 @@
     ./kitty.nix # terminal
     ./zoxide.nix # cd replacement
     ./shell.nix # primary shell: includes zsh, oh-my-zsh, and p10k theme
-
-    # TODO: Not set, need to investigate but will need custom config if used:
-    # ./shellcolor.nix
+    ./packages.nix # essential packages
 
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
@@ -23,7 +21,7 @@
     stateVersion = lib.mkDefault "23.05";
     sessionPath = [
       "$HOME/.local/bin"
-      "$HOME/scripts/talon_scripts"
+      # "$HOME/scripts/talon_scripts"
     ];
     sessionVariables = {
       SHELL = "zsh";
@@ -34,38 +32,6 @@
     };
   };
 
-  home.packages = builtins.attrValues {
-    inherit (pkgs)
-
-      # Packages that don't have custom configs go here
-
-      # TODO: spaces before comment are removed by nixpkgs-fmt
-      # See: https://github.com/nix-community/nixpkgs-fmt/issues/305
-      borgbackup# backups
-      btop# resource monitor
-      coreutils# basic gnu utils
-      # curl
-      eza# ls replacement
-      fd# tree style ls
-      findutils# find
-      fzf# fuzzy search
-      jq# JSON pretty printer and manipulator
-      nix-tree# nix package tree viewer
-      ncdu# TUI disk usage
-      pciutils
-      pfetch# system info
-      pre-commit# git hooks
-      p7zip# compression & encryption
-      ripgrep# better grep
-      usbutils
-      tree# cli dir tree viewer
-      unzip# zip extraction
-      unrar# rar extraction
-      wget# downloader
-      killall
-      gcc
-      zip; # zip compression
-  };
 
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;

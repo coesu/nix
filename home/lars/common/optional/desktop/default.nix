@@ -25,6 +25,10 @@
     source = ./waybar;
     recursive = true;
   };
+  home.file."." = {
+    source = ./tmux;
+    recursive = true;
+  };
 
   #  systemd.user = {
   # services.nextcloud-autosync = {

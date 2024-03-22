@@ -82,7 +82,7 @@ age-keys:
 
 # Check for successful sops activation.
 check-sops:
-  scripts/check-sops.sh
+  # scripts/check-sops.sh
 
 # Update the `mysecrets` flake input when changes have been made to the private nix-secrets repo
 serets-update:
