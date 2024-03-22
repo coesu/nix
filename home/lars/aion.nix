@@ -6,6 +6,7 @@
 
     #################### Host-specific Optional Configs ####################
     common/optional/desktop
+    common/optional/browser
 
   ];
 }

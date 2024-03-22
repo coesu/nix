@@ -1,6 +1,8 @@
-{ config }:
-{
-with config.colorScheme.colors; ''
+{ config, pkgs, inputs, ... }:
+let
+  gruvboxPlus = import ./gruvbox-plus.nix { inherit pkgs; };
+  # gruvboxPlus = pkgs.gruvbox-plus;
+  cssContent = with config.colorScheme.palette; ''
     @define-color accent_color #${base0D};
     @define-color accent_bg_color mix(#${base0D}, #${base00},0.3);
     @define-color accent_fg_color #${base00};
@@ -80,4 +82,48 @@ with config.colorScheme.colors; ''
     @define-color dark_4 mix(#${base00},black,0.2);
     @define-color dark_5 mix(#${base00},black,0.4);
   '';
+in
+{
+
+  imports = [
+    inputs.nix-colors.homeManagerModules.default
+  ];
+
+
+  home.file.".local/share/icons/Gruvbox-Plus-Dark/".source = "${gruvboxPlus}";
+
+  gtk = {
+    enable = true;
+
+    cursorTheme.package = pkgs.bibata-cursors;
+    cursorTheme.name = "Bibata-Modern-Ice";
+
+    theme.package = pkgs.adw-gtk3;
+    theme.name = "adw-gtk3";
+
+    # iconTheme.package = pkgs.papirus-icon-theme;
+    # iconTheme.name = "Papirus-Dark";
+    iconTheme.package = gruvboxPlus;
+    iconTheme.name = "Gruvbox-Plus-Dark";
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+    style.name = "adwaita-dark";
+
+    style.package = pkgs.adwaita-qt;
+  };
+
+  xdg.configFile."gtk-4.0/gtk.css" = {
+    text = cssContent;
+  };
+  xdg.configFile."gtk-3.0/gtk.css" = {
+    text = cssContent;
+  };
+
+
+
+  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-hard;
+
 }

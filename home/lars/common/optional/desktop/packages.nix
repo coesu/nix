@@ -2,25 +2,25 @@
 
 {
   home.packages = with pkgs; [
-      tmux
-      neovim
+    tmux
+    neovim
 
-      zathura
-      thunderbird
-      nextcloud-client
+    zathura
+    thunderbird
+    nextcloud-client
 
-      chromium
-      firefox
-      unstable.obsidian
+    chromium
+    firefox
+    unstable.obsidian
 
-      xfce.thunar
-      xfce.thunar-volman
-      waybar
-      unstable.hypridle
-      unstable.hyprlock
-      unstable.hyprpaper
-      wofi
-
-      gruvbox-plus
+    xfce.thunar
+    xfce.thunar-volman
+    waybar
+    unstable.hypridle
+    unstable.hyprlock
+    unstable.hyprpaper
+    wofi
+    wl-clipboard
+    imv
   ];
 }
