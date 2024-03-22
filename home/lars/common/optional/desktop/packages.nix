@@ -1,13 +1,7 @@
 { config, pkgs, inputs, ... }:
 
 {
-  home.packages = (with pkgs.gnome; [
-    nautilus
-    gnome-tweaks
-    eog
-
-  ]) ++ (with pkgs; [
-
+  home.packages =  with pkgs; [
     neovim
     vim
     vifm
@@ -65,5 +59,5 @@
     chromium
     firefox
     obsidian
-  ])
-    }
+  ];
+}

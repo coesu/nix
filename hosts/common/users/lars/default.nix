@@ -24,6 +24,6 @@ in
   '';
 
   # Import this user's personal/home configurations
-  home-manager.users.ta = import ../../../../home/lars/${config.networking.hostName}.nix;
+  home-manager.users.lars = import ../../../../home/lars/${config.networking.hostName}.nix;
 
 }

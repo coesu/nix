@@ -6,6 +6,7 @@
 { config, pkgs, lib, ... }:
 
 {
+  services.xserver.enable = true;
   services.xserver.displayManager = {
     sddm.enable = true;
     sddm.theme = "${import ./sddm-theme.nix { inherit pkgs; }}";

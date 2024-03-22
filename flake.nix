@@ -31,6 +31,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-colors.url = "github:misterio77/nix-colors";
     # vim4LMFQR!
     # nixvim = {
     #   url = "github:nix-community/nixvim/nixos-23.11";

@@ -5,7 +5,7 @@
 #
 ###############################################################
 
-{ inputs, ... }: {
+{ inputs, config, ... }: {
   imports = [
     #################### Hardware Modules ####################
     inputs.hardware.nixosModules.common-cpu-amd

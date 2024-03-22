@@ -7,7 +7,6 @@ in
 
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ./fonts.nix
     ./packages.nix
   ];
 
