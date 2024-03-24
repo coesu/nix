@@ -6,6 +6,8 @@
     vim
     neovim
     tmux
+    ttyper
+
     borgbackup # backups
     btop # resource monitor
     coreutils # basic gnu utils

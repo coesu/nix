@@ -24,6 +24,7 @@
       ];
 
       search = {
+        force = true;
         default = "Google";
         order = [ "Google" "Searx" ];
         engines = {
@@ -56,5 +57,11 @@
 
       };
     };
+  };
+  xdg.mimeApps.defaultApplications = {
+    "text/html" = [ "firefox.desktop" ];
+    "text/xml" = [ "firefox.desktop" ];
+    "x-scheme-handler/http" = [ "firefox.desktop" ];
+    "x-scheme-handler/https" = [ "firefox.desktop" ];
   };
 }

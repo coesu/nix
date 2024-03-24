@@ -22,5 +22,9 @@
     wofi
     wl-clipboard
     imv
+    networkmanagerapplet
+    swappy
+    grim
+    slurp
   ];
 }
